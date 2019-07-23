@@ -141,11 +141,14 @@ func main() {
 	}
 
 	array = fill_map(array)
+	generation_count := 0
 
 	for true {
 		array = process_map(array)
 		fmt.Printf("\033[0;0H")
 		print_map(array)
+		fmt.Println("Generation: " + strconv.Itoa(generation_count))
+		generation_count++
 		time.Sleep(time.Second / time.Duration(speed))
 	}
 }
